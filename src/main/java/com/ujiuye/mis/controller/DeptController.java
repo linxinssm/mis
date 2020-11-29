@@ -21,6 +21,7 @@ public class DeptController {
     @GetMapping("all")
     public R findAll(){
         List<Dept> list = deptService.findAll();
+        System.out.println(list);
 
         return CollectionUtils.isEmpty(list) ? R.error().msg("查询失败") : R.ok().data("items",list);
     }
@@ -29,7 +30,7 @@ public class DeptController {
     public R findAllDept(@PathVariable int pageNum,@PathVariable int pageSize){
         List<Dept> list = deptService.findAllDept(pageNum,pageSize);
 
-        return CollectionUtils.isEmpty(list) ? R.error().msg("查询失败") : R.ok().data("items",new PageInfo<>(list));
+        return CollectionUtils.isEmpty(list) ? R.error().msg("查询失败") : R.ok().data("items",new PageInfo(list));
     }
 
 
