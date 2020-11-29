@@ -36,5 +36,8 @@ public class TeacherController {
     }
 
 
-
+    @RequestMapping("/add")
+    public  void add (){
+        System.out.println("你是谁...");
+    }
 }
