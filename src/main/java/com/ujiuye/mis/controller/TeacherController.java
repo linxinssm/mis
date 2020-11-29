@@ -18,7 +18,10 @@ public class TeacherController {
     public  String  teach(){
 
         System.out.println("哈哈哈");
-        return "教师模块";
+        
+         System.out.println("喜欢看你的笑容");
+         System.out.println("喜欢洱海夕阳");
+        return "林深时见鹿,海蓝时见鲸";
     }
 
 
