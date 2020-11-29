@@ -11,7 +11,7 @@ public class TeacherController {
 
     public  String  teach(){
 
-        System.out.println("哈哈哈")
+        System.out.println("哈哈哈");
         return "教师模块";
     }
 
