@@ -39,7 +39,7 @@ public class EmployeeController {
 
          List<Employee> list = employeeService.findByPageQuery(pageNum,pageSize,employeeQuery);
 
-         return CollectionUtils.isEmpty(list) ? R.error().msg("查询失败") : R.ok().data("pageInfo",new PageInfo<>(list));
+         return CollectionUtils.isEmpty(list) ? R.error().msg("查询失败") : R.ok().data("pageInfo",new PageInfo(list));
 
     }
 
@@ -122,7 +122,7 @@ public class EmployeeController {
 
         httpHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);//ContentType内容类型
 
-        return  new ResponseEntity<>(bytes,httpHeaders, HttpStatus.OK);
+        return  new ResponseEntity(bytes,httpHeaders, HttpStatus.OK);
     }
 
 
@@ -134,7 +134,7 @@ public class EmployeeController {
             return R.error().msg("用户名不能为空");
         }
         if (StringUtils.isEmpty(password)){
-            return R.error().msg("用户名不能为空");
+            return R.error().msg("密码不能为空");
         }
 
 
@@ -143,6 +143,9 @@ public class EmployeeController {
         if (ObjectUtils.isEmpty(employee)){
             return R.error().msg("用户名或者密码错误");
         }
+
+        System.out.println("用户名:"+employee.getUsername() + "密码为:" + employee.getPassword());
+
 
         //setAttribute往作用域中存值
         session.setAttribute("active",employee.getEid());

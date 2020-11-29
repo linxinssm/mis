@@ -34,7 +34,7 @@ public class RoleController {
 
         System.out.println(list);
         // PageInfo<>(list)一个类:用于分页查询的-->里面有很多属性
-        return CollectionUtils.isEmpty(list) ? R.error().msg("查询失败") : R.ok().data("items",new PageInfo<>(list));
+        return CollectionUtils.isEmpty(list) ? R.error().msg("查询失败") : R.ok().data("items",new PageInfo(list));
 
     }
 

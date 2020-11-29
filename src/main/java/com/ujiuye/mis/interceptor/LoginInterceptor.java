@@ -13,6 +13,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         Integer active = (Integer) request.getSession().getAttribute("active");
 
+        System.out.println(active);
+
         if (active == null){
             response.sendRedirect("/login.html");
             return false;
